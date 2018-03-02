@@ -212,7 +212,7 @@ class TikTorch(object):
         return outputs
 
     def configure(self, *, window_size=None, num_input_channels=None, num_output_channels=None,
-                  serialize_to_path=None, devices=None):
+                  serialize_to_path=None, devices=None, halo_size=None):
         """
         Configure the object.
 
@@ -233,6 +233,10 @@ class TikTorch(object):
 
         devices : list
             List of devices to use. By default, TikTorch will only use GPU0 if CUDA is available.
+
+        halo_size : list
+            halo is assumed to be included in window_size. Number of border pixels that have to be
+            discarded from the output.
 
         Returns
         -------
